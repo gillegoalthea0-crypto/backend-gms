@@ -1,0 +1,87 @@
+{
+  "students": [
+    {
+      "id": "stu_seed_ana",
+      "name": "Ana Perez",
+      "email": "ana@example.com",
+      "gradeLevel": "10",
+      "createdAt": "2026-03-22T00:49:50.356Z"
+    },
+    {
+      "id": "stu_seed_mario",
+      "name": "Mario Soto",
+      "email": "mario@example.com",
+      "gradeLevel": "11",
+      "createdAt": "2026-03-22T00:49:50.356Z"
+    }
+  ],
+  "subjects": [
+    {
+      "id": "sub_seed_math",
+      "name": "Mathematics",
+      "teacher": "Mr. Diaz",
+      "createdAt": "2026-03-22T00:49:50.356Z"
+    },
+    {
+      "id": "sub_seed_science",
+      "name": "Science",
+      "teacher": "Ms. Rojas",
+      "createdAt": "2026-03-22T00:49:50.356Z"
+    }
+  ],
+  "grades": [
+    {
+      "id": "grd_seed_1",
+      "studentId": "stu_seed_ana",
+      "subjectId": "sub_seed_math",
+      "score": 78,
+      "maxScore": 100,
+      "term": "Q1",
+      "weight": 1,
+      "date": "2026-03-22",
+      "createdAt": "2026-03-22T00:49:50.356Z"
+    },
+    {
+      "id": "grd_seed_2",
+      "studentId": "stu_seed_ana",
+      "subjectId": "sub_seed_science",
+      "score": 61,
+      "maxScore": 100,
+      "term": "Q1",
+      "weight": 1,
+      "date": "2026-03-22",
+      "createdAt": "2026-03-22T00:49:50.356Z"
+    },
+    {
+      "id": "grd_seed_3",
+      "studentId": "stu_seed_mario",
+      "subjectId": "sub_seed_math",
+      "score": 55,
+      "maxScore": 100,
+      "term": "Q1",
+      "weight": 1,
+      "date": "2026-03-22",
+      "createdAt": "2026-03-22T00:49:50.356Z"
+    }
+  ],
+  "users": [
+    {
+      "id": "usr_1774142332832",
+      "googleId": "112690520627211428723",
+      "name": "Gleshelle Mae Hagosojos",
+      "email": "gleshellemae.hagosojos@sorsu.edu.ph",
+      "avatar": "https://lh3.googleusercontent.com/a/ACg8ocJFPLOG2Tg3OIORxyQSpZ_29N4MZDXWVqb819cbq8Ip35tbcA=s96-c",
+      "role": "teacher",
+      "createdAt": "2026-03-22T01:18:52.832Z"
+    },
+    {
+      "id": "usr_1774147666888",
+      "googleId": "110324392028995658610",
+      "name": "Prof John",
+      "email": "jprof801@gmail.com",
+      "avatar": "https://lh3.googleusercontent.com/a/ACg8ocJdnKXbRWenQeZSzxyDMaId4a32qH1ANzRJuYr-_Hif5wUMVA=s96-c",
+      "role": "professor",
+      "createdAt": "2026-03-22T02:47:46.888Z"
+    }
+  ]
+}

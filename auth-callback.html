@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Signing in…</title>
+</head>
+<body>
+  <p>Signing you in…</p>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+
+    const token     = params.get("token");
+    const role      = params.get("role");
+    const name      = params.get("name");
+    const id        = params.get("id");
+    const studentId = params.get("studentId") || null;
+
+    if (!token || !role) {
+      window.location.href = "login.html";
+    } else {
+      localStorage.setItem("token", token);
+      localStorage.setItem("user", JSON.stringify({ id, name, role, studentId }));
+
+      if (role === "professor") {
+        window.location.href = "grades.html";
+      } else {
+        window.location.href = "student.html";
+      }
+    }
+  </script>
+</body>
+</html>
+```
