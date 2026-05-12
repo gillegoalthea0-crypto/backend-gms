@@ -68,7 +68,7 @@ router.get(
       email: req.user.email,
       role: req.user.role,
     }));
-   res.redirect(`http://127.0.0.1:5500/grades-monitoring.html?token=${token}&user=${user}`);
+   res.redirect(`http://127.0.0.1:5500/index.html?token=${token}&user=${user}`);
   }
 );
 

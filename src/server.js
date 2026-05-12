@@ -1,11 +1,13 @@
 require("dotenv").config();
-const mongoose = require("mongoose");           
-mongoose.connect(process.env.MONGO_URI)           
-  .then(() => console.log("MongoDB connected ✅")) 
+const mongoose = require("mongoose");
+mongoose.connect(process.env.MONGO_URI)
+  .then(() => console.log("MongoDB connected ✅"))
   .catch(err => console.log("MongoDB error:", err));
 
 const express = require("express");
 const cors = require("cors");
+const helmet = require("helmet");
+const rateLimit = require("express-rate-limit");
 const passport = require("passport");
 const path = require("path");
 
@@ -15,7 +17,14 @@ const handleSubjectsRoute = require("./routes/subjects");
 const handleStatsRoute = require("./routes/stats");
 
 const app = express();
-app.use(cors());
+
+app.use(helmet());
+app.use(cors({ origin: 'http://127.0.0.1:5500' }));
+app.use(rateLimit({
+  windowMs: 15 * 60 * 1000,
+  max: 100,
+  message: { message: 'Too many requests, please try again later.' }
+}));
 app.use(express.json());
 app.use(express.static(path.join(__dirname, "..")));
 app.use(passport.initialize());
@@ -37,7 +46,8 @@ app.all("/api/*path", async (req, res) => {
     if (await handleStatsRoute(context)) return;
     res.status(404).json({ message: "Route not found" });
   } catch (err) {
-    res.status(500).json({ message: err.message });
+    console.error(err);
+    res.status(500).json({ message: "Internal server error" });
   }
 });
 
